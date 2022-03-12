@@ -1,6 +1,8 @@
 package com.example.bumblebee.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.bumblebee.Database.Repository;
+import com.example.bumblebee.Entity.Product;
 import com.example.bumblebee.R;
+
+import java.util.List;
 
 
 public class ProductList extends AppCompatActivity {
@@ -19,6 +25,13 @@ public class ProductList extends AppCompatActivity {
         setContentView(R.layout.activity_product_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        Repository repository = new Repository(getApplication());
+        List<Product> productList = repository.getAllProducts();
+        final ProductAdapter productAdapter = new ProductAdapter(this);
+        productAdapter.setProducts(productList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(productAdapter);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

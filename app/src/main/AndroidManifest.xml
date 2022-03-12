@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Bumblebee">
         <activity
             android:name=".UI.PartDetail"
+            android:parentActivityName=".UI.PartList"
             android:exported="false" />
         <activity
             android:name=".UI.PartList"
