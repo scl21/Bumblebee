@@ -9,20 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bumblebee">
+        <receiver
+            android:name=".UI.MyReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+        <receiver
+            android:name=".UI.BroadcastReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity
             android:name=".UI.PartDetail"
-            android:parentActivityName=".UI.PartList"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Part Detail"
+            android:parentActivityName=".UI.PartList" />
         <activity
             android:name=".UI.PartList"
-            android:parentActivityName=".UI.ProductList"
+            android:exported="false"
             android:label="Part List"
-            android:exported="false" />
+            android:parentActivityName=".UI.ProductList" />
         <activity
             android:name=".UI.ProductList"
-            android:parentActivityName=".UI.MainActivity"
+            android:exported="false"
             android:label="Product list"
-            android:exported="false" />
+            android:parentActivityName=".UI.MainActivity" />
         <activity
             android:name=".UI.MainActivity"
             android:exported="true">
